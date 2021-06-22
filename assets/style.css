@@ -104,6 +104,10 @@ td, tr ,th{
     margin: 10px;
 }
 
+#slider img{
+    width: inherit;
+}
+
 #content{
     float: right;
     margin-top: 64px;

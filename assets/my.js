@@ -7,8 +7,10 @@ let w = window,
 // alert(x + ' × ' + y);
 document.getElementById('submit-edit-product').style.width=x*0.35+'px';
 document.getElementById('box-add-product').style.width=x*0.35+'px';
+document.getElementById('slider').style.width=x*0.39+'px';
 document.getElementById('submit-edit-product').style.height=y*0.12+'px';
 document.getElementById('box-add-product').style.height=y*0.12+'px';
+// document.getElementById('slider').style.height=y*0.12+'px';
 
 
 window.onload = function(){
@@ -200,9 +202,10 @@ function updateProduct(index){
     product_edit[1]=document.getElementById('name').value;
     product_edit[2]=document.getElementById('price').value;
     product_edit[3]=document.getElementById('quantity').value;
-    for(let i=0;i<product_array[0].length;i++){
-        product_array[index][i]=product_edit[i];
-    } 
+    // for(let i=0;i<product_array[0].length;i++){
+    //     product_array[index][i]=product_edit[i];
+    // } 
+    product_array[index]=product_edit;
     document.getElementById('submit-add-product').hidden = false;
     document.getElementById('view-product').hidden = false;
     document.getElementById('submit-edit-product').hidden=true;
