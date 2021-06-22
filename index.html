@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./assets/style.css">
+    <link rel="stylesheet" href="./assets/themify-icons/themify-icons.css">
+    <title>Product Management</title>
+</head>
+<body>
+ <div id="main">
+    <div id="header">
+        <ul>
+            <li><h2 class="ti-mobile white-text">Product Management</h2></li>
+            <li>
+                <input type="text" id="search-product" placeholder="Enter name of the product" required>
+                <button class="ti-search search-btn" onclick="search_product()"></button>
+            </li>
+            <li><a target="blank" href="https://www.google.com/" class="ti-light-bulb white-text">Support</a></li>
+            <li><a href="#" class="ti-bell white-text ">Notification</a></li>
+        </ul>
+    </div>
+    <div id="side-bar">
+        <table id="table-add-product">
+            <tr>
+                <th>Image</th>
+                <td><input type="text" id="image" required></td>
+            </tr>
+            <tr>
+                <th>Name</th>
+                <td><input type="text" id="name" required></td>
+            </tr>
+            <tr>
+                <th>Price</th>
+                <td><input type="text" id="price" required></td>
+            </tr>
+            <tr>
+                <th>Quantity</th>
+                <td><input type="number" id="quantity" required></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    <p id="box-add-product">
+                        <button onclick="add_product()" id="submit-add-product">Add</button>
+                    <button onclick="display_available_product()" id="view-product">See available products</button>
+                    </p>
+                    
+                    <p id="submit-edit-product">
+
+                    </p>
+                </td>
+            </tr>
+        </table>
+        <div id="slider">
+            <img src="./assets/img/slide1.jpg" alt="slide" name="slide">
+        </div>
+    </div>
+    <div id="content">
+        <div class="content-header">
+            <h3>Display All Product</h3>
+            <hr>
+        </div>
+        <table id="table-list-product">
+            <tr >
+                <th>Image</th>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Quantity</th>
+                <th></th>
+                <th></th>
+            </tr>
+            <tbody id="product-list">
+
+            </tbody>
+        </table>
+        <!-- ========== sub-->
+        <table id="table-list-available-product">
+            <tbody id="available-product-list">
+
+            </tbody>
+            <tbody id="available-product-footer">
+
+            </tbody>
+        </table>
+        <!-- ========= -->
+        <hr>
+        <br>
+        <div id="footer" class="text-center">
+            <div class="social">
+              <a href="#"><i class="ti-facebook"></i></a>
+              <a href="#"><i class="ti-instagram"></i></a>
+              <a href="#"><i class="ti-google"></i></a>
+              <a href="#"><i class="ti-pinterest"></i></a>
+              <a href="#"><i class="ti-twitter-alt"></i></a>
+              <a href="#"><i class="ti-github"></i></a>
+            </div>
+            <p>Create by <a target="_blank" href="https://github.com/Dark-Star3110/quan_li_san_pham">DarkStar</a></p>
+          </div>
+    </div>
+ </div>
+    <!-- end main -->
+    <!-- box -->
+    <div id="box">
+
+    </div>
+      <!-- end box -->
+    <script src="./assets/my.js"></script>
+</body>
+</html>
