@@ -193,7 +193,7 @@ function editProduct(index){
     document.getElementById('submit-add-product').hidden = true;
     document.getElementById('view-product').hidden = true;
     document.getElementById('submit-edit-product').hidden=false;
-    document.getElementById('submit-edit-product').innerHTML = '<button onclick="updateProduct(0)" >Update</button>';
+    document.getElementById('submit-edit-product').innerHTML = '<button onclick="updateProduct('+index+')" >Update</button>';
 }
 
 function updateProduct(index){
