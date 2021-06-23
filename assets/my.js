@@ -114,7 +114,10 @@ function add_product() {
     let name = document.getElementById('name').value;
     let price = document.getElementById('price').value;
     let quantity = document.getElementById('quantity').value;
-
+    if(img == '' || name == '' || price == '' || quantity == ''){
+        alert('Please complete all information !!!');
+        return;
+    }
     let product = [img,name, price, quantity];
     product_array.push(product);
 
