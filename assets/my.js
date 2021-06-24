@@ -32,17 +32,17 @@ function switch_img(){
 
 // ====================================
 let product_array=[
-    ["ip12","Iphone 12 Pro Max 128GB",'2940000VND',2],
-    ['xiaomi',"Xiaomi POCO X3 Pro 8GB",'7129000VND',18],
-    ['ss','SamSung Galaxy Note20 Utra','21990000VND',4]
+    ["ip12","Iphone 12 Pro Max 128GB",29400000,2],
+    ['xiaomi',"Xiaomi POCO X3 Pro 8GB",7129000,18],
+    ['ss','SamSung Galaxy Note20 Utra',21990000,4]
 ];
 let product_available=[
-    ["nokia5.4",'Nokia 5.4 4GB -128GB','2990000VND',25],
-    ["oppoA73",'OPPO A73 6GB-128GB','4990000VND',14],
-    ['realme30A','Realme Narzo 30A 4GB - 64GB','3790000VND',20],
-    ['samsungs21','Samsung Galaxy S21+ 128GB','20990000VND',8],
-    ['vivoY20','Vivo Y20 4GB - 64GB','3290000VND',16],
-    ['VmartJoy','Vsmart Joy 4 3GB-64GB','2690000VND',24]
+    ["nokia5.4",'Nokia 5.4 4GB -128GB',2990000,25],
+    ["oppoA73",'OPPO A73 6GB-128GB',4990000,14],
+    ['realme30A','Realme Narzo 30A 4GB - 64GB',3790000,20],
+    ['samsungs21','Samsung Galaxy S21+ 128GB',20990000,8],
+    ['vivoY20','Vivo Y20 4GB - 64GB',3290000,16],
+    ['VmartJoy','Vsmart Joy 4 3GB-64GB',2690000,24]
 ];
 let visited=[];
 let color=[];
@@ -50,8 +50,37 @@ for(let i=0;i<product_available.length;i++){
     visited[i]='Select';
     color[i]='green';
 }
+
+// function swap(arr1,arr2){
+//     let temp=[];
+//     temp=arr1;
+//     arr1=arr2;
+//     arr2=temp;
+//     // console.log(arr1);
+//     // console.log(arr2);
+// }
+
+function sort_product(){
+    let n=product_array.length;
+
+    for(let i=0;i<n-1;i++){
+        // console.log(product_array[i][2]);
+        for(let j=i+1;j<n;j++){
+        // console.log(product_array[j][2]);
+            if(product_array[i][2] > product_array[j][2]){
+                // swap(product_array[i],product_array[j]);
+                let temp=[];
+                temp=product_array[i];
+                product_array[i]=product_array[j];
+                product_array[j]=temp;
+            }
+        }
+    }
+}
+
 function display_product(){
     // document.getElementById('table-list-available-product').style.display='none';
+    sort_product();
     let html="";
     for(let i=0;i<product_array.length;i++){
         html+="<tr>";
@@ -61,19 +90,48 @@ function display_product(){
                 html+='<img src='+'"./assets/img/'+product_array[i][0]+'.jpg"'+ 'alt="Product Image" class="product-img"></img>';
                 html+='</th>';
             }
+            else if(j==2){
+                html+='<th style="padding:10px;">';
+                html+=product_array[i][j]+'VND';
+                html+='</th>';
+            }
             else{
                 html+='<th style="padding:10px;">';
                 html+=product_array[i][j];
                 html+='</th>';
             }
         }
-        html+='<td class="sub-btn" onclick="editProduct('+i+')"><button>Edit</button></td>';
-        html += '<td class="sub-btn"><button onclick="deleteProduct('+i+')">Delete</button></td>'
+        html+='<td class="sub-btn" ><button id="edit-btn'+i+'" onclick="editProduct('+i+')">Edit</button></td>';
+        html += '<td class="sub-btn"><button id="delete-btn'+i+'" onclick="deleteProduct('+i+')">Delete</button></td>'
+        // html+='<td><input type="checkbox" value="0" id="checkbox1" /></td>';
+        html += '<td><input type="checkbox" class="ck-box" id="check-box'+i+'" onclick="check('+i+')"/></td>'
         html+="</tr>";
     }
     document.getElementById("product-list").innerHTML=html;
 }
 display_product();
+
+function check(index){
+    let check = document.getElementById('check-box'+index).checked;
+    let edit_btn=document.getElementById('edit-btn'+index);
+    let delete_btn=document.getElementById('delete-btn'+index);
+    if(check){
+        edit_btn.disabled=true;
+        edit_btn.style.cursor='not-allowed';
+        edit_btn.style.opacity=0.6;
+        delete_btn.disabled=true;
+        delete_btn.style.cursor='not-allowed';
+        delete_btn.style.opacity=0.6;
+    }
+    else{
+        edit_btn.disabled=false;
+        edit_btn.style.cursor='pointer';
+        edit_btn.style.opacity=1;
+        delete_btn.disabled=false;
+        delete_btn.style.cursor='pointer';
+        delete_btn.style.opacity=1;
+    }
+}
 
 function search_product(){
     check=false;
@@ -174,7 +232,6 @@ function deleteProduct(index){
     if(confirm("Are you sure?")){
         product_array.splice(index,1);
         display_product();
-        alert('delete successfull !');
     }
 }
 

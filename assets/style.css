@@ -23,6 +23,7 @@ button{
 button:hover{
     background-color: #757575;
     color: #000;
+    cursor: pointer;
 }
 
 table{
@@ -132,6 +133,12 @@ td, tr ,th{
 
 .sub-btn{
     width: 80px;
+}
+
+.ck-box{
+    width: 32px;
+    height: 32px;
+    margin: 10px;
 }
 
 .product-img{
