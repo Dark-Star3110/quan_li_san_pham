@@ -213,7 +213,13 @@ function display_available_product(){
         html+="</tr>";
     }
     document.getElementById("available-product-list").innerHTML=html;
-    document.getElementById('available-product-footer').innerHTML='<tr><button onclick="add_all()">Select All</button></tr>';
+    document.getElementById('available-product-footer-top').innerHTML='<tr><button onclick="add_all()">Select All</button></tr>';
+    document.getElementById('available-product-footer-bot').innerHTML='<tr><button style="background-color:red;" onclick="close_sub_content()">Close</button></tr>';
+}
+
+function close_sub_content(){
+    document.getElementById('table-list-product').style.display='block';
+    document.getElementById('table-list-available-product').style.display='none';
 }
 
 function select_product(i){
